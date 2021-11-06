@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OTO">
         <activity
+            android:name=".DetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OtpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegistrasiActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
