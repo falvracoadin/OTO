@@ -9,7 +9,7 @@
     <string name="buat_akun"><u>Buat Akun OTO</u></string>
     <string name="verifikasi">Verifikasi kode OTP</string>
     <string name="desc_otp">Masukkan kode verifikasi yang dikirim ke E-mail Anda</string>
-    <string name="input_kode">Masukkan kode dalam</string>
+    <string name="input_kode">Masukkan kode dalam 2 m</string>
     <string name="konfirmasi">Konfirmasi</string>
     <string name="resend_otp">Kirim kembali kode OTP</string>
     <string name="main_greet">Halo, Nama!</string>
