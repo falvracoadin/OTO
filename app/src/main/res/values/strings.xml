@@ -17,4 +17,7 @@
     <string name="Lname">Nama lengkap</string>
     <string name="setuju_aturan_pengguna">Setuju dengan aturang pengguna</string>
     <string name="registrasi">Registrasi</string>
+    <string name="aktivitas_mendatang">Aktivitas Mendatang</string>
+    <string name="tambah_agenda">Tambah Agenda +</string>
+    <string name="aktivitas_selesai">Aktivitas yang sudah selesai</string>
 </resources>
