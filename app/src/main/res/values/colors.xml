@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="font">#6D6B6B</color>
+    <color name="base">#22CF60</color>
+    <color name="tab_indicator">#219653</color>
 </resources>

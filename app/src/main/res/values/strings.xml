@@ -12,4 +12,13 @@
     <string name="input_kode">Masukkan kode dalam</string>
     <string name="konfirmasi">Konfirmasi</string>
     <string name="resend_otp">Kirim kembali kode OTP</string>
+    <string name="main_greet">Halo, Nama!</string>
+    <string name="main_desc">Mau melakukan apa hari ini?</string>
+    <string name="main_tab_1">Aktivitas</string>
+    <string name="main_tab_2">Kunci Aplikasi</string>
+    <string name="aktivitas_mendatang">Aktivitas Mendatang</string>
+    <string name="tambah_agenda">Tambah Agenda +</string>
+    <string name="aktivitas_selesai">Aktivitas yang sudah selesai</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
