@@ -12,4 +12,9 @@
     <string name="input_kode">Masukkan kode dalam</string>
     <string name="konfirmasi">Konfirmasi</string>
     <string name="resend_otp">Kirim kembali kode OTP</string>
+    <string name="main_greet">Halo, Nama!</string>
+    <string name="main_desc">Mau melakukan apa hari ini?</string>
+    <string name="Lname">Nama lengkap</string>
+    <string name="setuju_aturan_pengguna">Setuju dengan aturang pengguna</string>
+    <string name="registrasi">Registrasi</string>
 </resources>
