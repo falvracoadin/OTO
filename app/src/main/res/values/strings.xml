@@ -20,4 +20,6 @@
     <string name="aktivitas_mendatang">Aktivitas Mendatang</string>
     <string name="tambah_agenda">Tambah Agenda +</string>
     <string name="aktivitas_selesai">Aktivitas yang sudah selesai</string>
+    <string name="judul_agenda">Judul Agenda</string>
+    <string name="format_waktu">dd/mm/yyyy</string>
 </resources>
