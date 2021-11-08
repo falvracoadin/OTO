@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672774854701",
+    "project_id": "ontimeon",
+    "storage_bucket": "ontimeon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672774854701:android:80acb77e77de45a03fc0a4",
+        "android_client_info": {
+          "package_name": "com.example.oto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672774854701-fpkhlb4jhfacamsrgqns0jih8e773c9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRA__jiJgIxNvrG4i0dcypwCrl3BaYQgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672774854701-fpkhlb4jhfacamsrgqns0jih8e773c9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
