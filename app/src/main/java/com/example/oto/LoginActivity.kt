@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, pass:String){
+        //Verifikasi kredensial login user
         auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
             if(it.isSuccessful){
                 startActivity(Intent(this, MainActivity::class.java))
@@ -40,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun moveToRegistrasi(){
+        //Membuka RegistrasiActivity
         val intent = Intent(this, RegistrasiActivity::class.java)
         startActivity(intent)
         finish()
