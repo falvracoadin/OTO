@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
         //cegah input pada time
         binding.editWaktu.inputType = InputType.TYPE_NULL
 
-        //cek ono extras intent tekan fragment aktivitas t gk
+        //Mengecek extra dari intent
         if(intent.hasExtra("nama")){
             aktivitas = Aktivitas(
                 intent.getStringExtra("nama"),
@@ -62,7 +62,7 @@ class DetailActivity : AppCompatActivity() {
             time.set(Calendar.MINUTE, p2)
             updateTime()
         }
-        //tambaho nang edit waktu
+        //Menambahkan pada edit waktu
         binding.editWaktu.setOnClickListener {
             TimePickerDialog(
                 this,
