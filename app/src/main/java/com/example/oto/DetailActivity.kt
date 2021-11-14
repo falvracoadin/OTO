@@ -38,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
             aktivitas = Aktivitas()
         }
 
-        //gae datepick listener
+        //Buat datepick listener
         val pickListener = DatePickerDialog.OnDateSetListener { p0, p1, p2, p3 ->
             calendar.set(Calendar.YEAR,p1)
             calendar.set(Calendar.MONTH, p2)
@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
             updateDate()
         }
 
-        //tambaho listener pick nang tv waktu
+        //Listener untuk tv waktu
         binding.tvWaktu.setOnClickListener{
             DatePickerDialog(
                 this,
