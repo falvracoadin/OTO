@@ -43,6 +43,11 @@ class RegistrasiActivity : AppCompatActivity() {
             }
         }
 
+        binding.menuBack.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
     }
 
     private fun isInputInvalid() : Boolean{

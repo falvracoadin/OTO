@@ -55,6 +55,9 @@ class MainActivity : AppCompatActivity() {
         binding.pager.adapter = MainPagerAdapter(supportFragmentManager)
         supportActionBar?.hide()
         binding.tab.setupWithViewPager(binding.pager)
+
+        //test logout
+        binding.profileImg.setOnClickListener{logout()}
     }
 
     private fun moveToLogin(){
@@ -64,5 +67,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun logout(){
         auth.signOut()
+        moveToLogin()
     }
 }

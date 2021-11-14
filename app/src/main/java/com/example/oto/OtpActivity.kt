@@ -65,7 +65,7 @@ class OtpActivity : AppCompatActivity() {
         isTimerFinished = false
         timer = object : CountDownTimer(timeout * 1000, 1000){
             override fun onTick(p0: Long) {
-                binding.timer.text = resources.getString(R.string.input_kode) + " " + floor(p0/1000.0).toString() + " s"
+                binding.timer.text = resources.getString(R.string.input_kode) + " " + floor((p0/1000).toDouble()).toString() + " s"
             }
 
             override fun onFinish() {

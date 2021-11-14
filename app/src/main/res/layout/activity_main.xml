@@ -14,7 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="13dp"
-        android:src="@drawable/person"/>
+        android:src="@drawable/person"
+        android:id="@+id/profile_img"/>
 
     <TextView
         android:layout_width="match_parent"
