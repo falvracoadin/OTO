@@ -62,6 +62,7 @@ class OtpActivity : AppCompatActivity() {
     }
 
     private fun startTimer(timeout : Long){
+        //Start waktu untuk memasukkan kode OTP
         isTimerFinished = false
         timer = object : CountDownTimer(timeout * 1000, 1000){
             override fun onTick(p0: Long) {
@@ -77,6 +78,7 @@ class OtpActivity : AppCompatActivity() {
     }
 
     private fun sendOTP(timeout: Long = 60){
+        //Kirim masukan OTP ke server
         if(isTimerFinished) {
 
             val options = PhoneAuthOptions.newBuilder(auth)
@@ -116,6 +118,7 @@ class OtpActivity : AppCompatActivity() {
     }
 
     private fun verifyOTP(code : String){
+        //Verifikasi OTP masukan user
         val credential = PhoneAuthProvider.getCredential(verifId, code)
         auth.currentUser?.linkWithCredential(credential)
             ?.addOnCompleteListener{
