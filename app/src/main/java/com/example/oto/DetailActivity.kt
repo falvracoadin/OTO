@@ -23,7 +23,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //cegah input nang time
+        //cegah input pada time
         binding.editWaktu.inputType = InputType.TYPE_NULL
 
         //cek ono extras intent tekan fragment aktivitas t gk
