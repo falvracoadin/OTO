@@ -78,7 +78,7 @@ class OtpActivity : AppCompatActivity() {
     }
 
     private fun sendOTP(timeout: Long = 60){
-        //Kirim masukan OTP ke server
+        //Kirim kembali OTP
         if(isTimerFinished) {
 
             val options = PhoneAuthOptions.newBuilder(auth)
