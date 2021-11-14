@@ -42,7 +42,7 @@ class RegistrasiActivity : AppCompatActivity() {
                 else -> Toast.makeText(this, "Anda belum menyetujui aturan penggunaan aplikasi!",Toast.LENGTH_SHORT).show()
             }
         }
-
+     
         binding.menuBack.setOnClickListener{
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -51,6 +51,7 @@ class RegistrasiActivity : AppCompatActivity() {
     }
 
     private fun isInputInvalid() : Boolean{
+        //Validasi input user agar sesuai kriteria
         return (
                 TextUtils.isEmpty(binding.name.text.toString())
                 or TextUtils.isEmpty(binding.email.text.toString())
@@ -63,6 +64,7 @@ class RegistrasiActivity : AppCompatActivity() {
     }
 
     private fun register(email: String, phone : String, pass : String){
+        //Buat akun baru
         auth.createUserWithEmailAndPassword(email,pass)
             .addOnCompleteListener{
                 if(it.isSuccessful){
@@ -73,6 +75,7 @@ class RegistrasiActivity : AppCompatActivity() {
             }
     }
     private fun moveToOTP(phone: String){
+        //Pindah ke halaman verifikasi OTP
         val intent = Intent(this, OtpActivity::class.java)
         intent.putExtra("phone", "+62"+phone)
         val mahasiswa = Mahasiswa(
