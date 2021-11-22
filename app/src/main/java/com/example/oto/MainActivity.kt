@@ -4,12 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.room.Room
 import com.example.oto.adapter.MainPagerAdapter
+import com.example.oto.database.MainApplication
 import com.example.oto.database.MainDatabase
 import com.example.oto.databinding.ActivityMainBinding
 import com.example.oto.model.Aktivitas
 import com.example.oto.model.Mahasiswa
+import com.example.oto.viewmodel.AktivitasViewModel
+import com.example.oto.viewmodel.AktivitasViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
