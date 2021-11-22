@@ -30,13 +30,19 @@
             android:id="@+id/label_aktivitas_mendatang"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_aktivitas_mendatang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/label_aktivitas_mendatang"
-            android:layout_marginTop="10dp"
             android:layout_marginHorizontal="29dp"
-            android:id="@+id/recycler_aktivitas_mendatang"
-            tools:listitem="@layout/list_aktivitas"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_aktivitas_mendatang"
+            tools:listitem="@layout/list_aktivitas" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
