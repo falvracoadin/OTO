@@ -1,12 +1,16 @@
 package com.example.oto
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.oto.databinding.ActivityDetailBinding
 import com.example.oto.model.Aktivitas
 import java.text.SimpleDateFormat
@@ -17,6 +21,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var aktivitas : Aktivitas
     private val calendar = Calendar.getInstance()
     private val time = Calendar.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +44,6 @@ class DetailActivity : AppCompatActivity() {
                 intent.getLongExtra("waktu_mulai",0),
                 intent.getLongExtra("durasi",0)
             )
-        }else{
-
         }
 
         //Buat datepick listener
@@ -101,7 +104,26 @@ class DetailActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.simpan ->{
-
+                val timemilis = calendar.timeInMillis + time.timeInMillis
+                val current = System.currentTimeMillis()
+                val replyIntent = Intent()
+                if(timemilis < current){
+                    print("Waktu aktivitas tidak boleh kurang dari waktu sekarang!")
+                }else if(!TextUtils.isEmpty(binding.editDeskripsi.text) and !TextUtils.isEmpty(binding.tvJudul.text) and !TextUtils.isEmpty(binding.durasi.text)){
+                    if(binding.durasi.text.toString().toInt() > 0) {
+                        replyIntent.putExtra("nama", binding.tvJudul.text.toString())
+                        replyIntent.putExtra("deskripsi", binding.editDeskripsi.text.toString())
+                        replyIntent.putExtra("status", 0)
+                        replyIntent.putExtra("waktu_mulai", timemilis)
+                        replyIntent.putExtra("durasi", binding.durasi.text.toString())
+                        setResult(Activity.RESULT_OK, replyIntent)
+                        finish()
+                    }else{
+                        print("Durasi harus lebih dari 0")
+                    }
+                }else{
+                    print("Input aktivitas tidak memenuhi format")
+                }
             }
             R.id.hapus -> {
 
@@ -110,4 +132,7 @@ class DetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    fun print(message : String){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
 }

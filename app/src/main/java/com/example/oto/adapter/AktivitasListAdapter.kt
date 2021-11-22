@@ -4,40 +4,62 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oto.R
 import com.example.oto.model.Aktivitas
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AktivitasListAdapter(var list : List<Aktivitas>) : RecyclerView.Adapter<AktivitasListAdapter.AktivitasViewHolder>() {
+class AktivitasListAdapter : ListAdapter<Aktivitas, AktivitasListAdapter.AktivitasViewHolder>(AktivitasComparator()){
+    class AktivitasViewHolder(view: View) : RecyclerView.ViewHolder(view){
+        private val namaAktivitas : TextView = view.findViewById(R.id.nama_aktivitas)
+        private val tglAktivitas : TextView = view.findViewById(R.id.tgl_aktivitas)
+        private val waktuAktivitas : TextView = view.findViewById(R.id.waktu_aktivitas)
 
-    class AktivitasViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        var namaAktivitas = view.findViewById<TextView>(R.id.nama_aktivitas)
-        var tglAktivitas = view.findViewById<TextView>(R.id.tgl_aktivitas)
-        var waktuAktivitas = view.findViewById<TextView>(R.id.waktu_aktivitas)
+        fun bind(namaAktivitas : String?, tglAktivitas:Long, waktuAktivitas : Long){
+            this.namaAktivitas.text = namaAktivitas
+            this.tglAktivitas.text = getDate(tglAktivitas, "dd/MM/yyyy")
+            this.waktuAktivitas.text = (waktuAktivitas /(1000 * 60)).toString()
+        }
+        companion object{
+            fun create(parent: ViewGroup) : AktivitasViewHolder{
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.list_aktivitas, parent, false)
+                return AktivitasViewHolder(view)
+            }
+        }
+        fun getDate(milis : Long, format : String) : String{
+            val formater = SimpleDateFormat(format)
+
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = milis
+            return formater.format(calendar.time)
+        }
+    }
+
+    class AktivitasComparator : DiffUtil.ItemCallback<Aktivitas>(){
+        override fun areItemsTheSame(oldItem: Aktivitas, newItem: Aktivitas): Boolean {
+            return oldItem === newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Aktivitas, newItem: Aktivitas): Boolean {
+            return (oldItem.nama == newItem.nama
+                    && oldItem.deskripsi == newItem.deskripsi
+                    && oldItem.waktu_mulai == newItem.waktu_mulai)
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AktivitasViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.list_aktivitas, parent, false)
-        return AktivitasViewHolder(view)
+        return AktivitasViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: AktivitasViewHolder, position: Int) {
-        val show = itemCount-1-position
-        holder.namaAktivitas.text = list[show].nama
-        holder.tglAktivitas.text = getDate(list[show].waktu_mulai, "d/m/y")
-        holder.waktuAktivitas.text = list[show].durasi.toString()
+        val current = getItem(position)
+        holder.bind(current.nama, current.waktu_mulai, current.durasi)
     }
 
-    fun getDate(milis : Long, format : String) : String{
-        val formater = SimpleDateFormat(format)
-
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = milis
-        return formater.format(calendar.time)
-    }
-
-    override fun getItemCount(): Int = list.size
 }
