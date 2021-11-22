@@ -82,7 +82,7 @@ class OtpActivity : AppCompatActivity() {
         if(isTimerFinished) {
 
             val options = PhoneAuthOptions.newBuilder(auth)
-                .setPhoneNumber(intent.getStringExtra("phone")!!)
+                .setPhoneNumber("+62"+intent.getStringExtra("phone")!!)
                 .setTimeout(timeout, TimeUnit.SECONDS)
                 .setActivity(this)
                 .setCallbacks(callback)

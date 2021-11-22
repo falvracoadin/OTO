@@ -21,6 +21,10 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
         setContentView(binding.root)
 
         //cegah input pada time
@@ -29,13 +33,14 @@ class DetailActivity : AppCompatActivity() {
         //Mengecek extra dari intent
         if(intent.hasExtra("nama")){
             aktivitas = Aktivitas(
-                intent.getStringExtra("nama"),
-                intent.getStringExtra("deskripsi"),
+                intent.getStringExtra("nama")!!,
+                intent.getStringExtra("deskripsi")!!,
                 intent.getIntExtra("status",0),
-                intent.getLongExtra("waktu_mulai",0)
+                intent.getLongExtra("waktu_mulai",0),
+                intent.getLongExtra("durasi",0)
             )
         }else{
-            aktivitas = Aktivitas()
+
         }
 
         //Buat datepick listener
@@ -62,6 +67,7 @@ class DetailActivity : AppCompatActivity() {
             time.set(Calendar.MINUTE, p2)
             updateTime()
         }
+
         //Menambahkan pada edit waktu
         binding.editWaktu.setOnClickListener {
             TimePickerDialog(
@@ -72,6 +78,8 @@ class DetailActivity : AppCompatActivity() {
                 android.text.format.DateFormat.is24HourFormat(this)
             ).show()
         }
+
+
     }
 
     private fun updateDate(){
@@ -85,15 +93,21 @@ class DetailActivity : AppCompatActivity() {
         aktivitas.durasi = time.timeInMillis
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.details_menu,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            R.id.simpan ->{
 
+            }
+            R.id.hapus -> {
+
+            }
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

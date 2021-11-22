@@ -4,13 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.room.Room
 import com.example.oto.adapter.MainPagerAdapter
+import com.example.oto.database.MainDatabase
 import com.example.oto.databinding.ActivityMainBinding
+import com.example.oto.model.Aktivitas
 import com.example.oto.model.Mahasiswa
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {

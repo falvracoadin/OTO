@@ -77,7 +77,7 @@ class RegistrasiActivity : AppCompatActivity() {
     private fun moveToOTP(phone: String){
         //Pindah ke halaman verifikasi OTP
         val intent = Intent(this, OtpActivity::class.java)
-        intent.putExtra("phone", "+62"+phone)
+        intent.putExtra("phone", phone)
         val mahasiswa = Mahasiswa(
             binding.name.text.toString(),
             binding.email.text.toString(),
