@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OTO">
-
+        <activity
+            android:name=".viewmodel.LockActivity"
+            android:exported="false" />
         <activity
             android:name=".DetailActivity"
             android:exported="true" />
@@ -37,7 +39,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>
